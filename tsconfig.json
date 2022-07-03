@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true, // ts nie będzie automatycznie zmieniał coś na any
+    "preserveConstEnums": true, // pozwala na to, żeby enumy zostały w js
+    "sourceMap": true, // żeby można było wiedzieć, gdzie dokładnie jest bład w pliku this
+    "target": "es6",
+    "downlevelIteration": true, // żeby wiedzieć, że dane rzeczy można iterować
+    "lib": ["es6", "dom.iterable"],
+    "outDir": "dist",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "Node" // żeby typy nam zadziałały
+  }
+}
