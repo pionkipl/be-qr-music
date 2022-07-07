@@ -23,7 +23,6 @@ export class SongRecord implements SongEntity {
     }
 
     if (!(/^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/.test(url))) {
-      console.log('url is incorrect');
       throw new ValidationError('Url is not valid');
     }
 
@@ -44,12 +43,7 @@ export class SongRecord implements SongEntity {
 
   static async getAllSongs(): Promise<SongRecord[]> {
     const [results] = (await pool.execute("SELECT * FROM `songs` ORDER BY `date` DESC")) as SongRecordResults;
-    console.log('results', results);
     return results.map(obj => new SongRecord(obj));
   }
-
-  // async getLatest(): Promise<SongsRecord | null> {
-  //   await
-  // }
 
 }

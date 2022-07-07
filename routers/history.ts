@@ -7,7 +7,6 @@ export const historyRouter = Router();
 historyRouter
   .get('/history', async (req, res) => {
     const songs = await SongRecord.getAllSongs()
-    console.log('songs', songs);
     res.json({
       success: true,
       data: songs

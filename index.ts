@@ -2,6 +2,7 @@ import * as express from "express";
 import * as cors from 'cors';
 import 'express-async-errors';
 import { historyRouter } from "./routers/history";
+import { addSongRouter } from "./routers/add-song";
 import './utils/db';
 import {handleError} from './utils/errors';
 
@@ -14,6 +15,7 @@ app.use(handleError);
 app.use(express.json());
 
 app.use('/api', historyRouter);
+app.use('/api', addSongRouter);
 
 app.listen(3000, 'localhost', () => {
   console.log('listen on http://localhost:3000');
