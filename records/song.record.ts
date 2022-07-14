@@ -32,7 +32,7 @@ export class SongRecord implements SongEntity {
   }
 
   async addSong(): Promise<string> {
-    await pool.execute("INSERT INTO `songs`(`id`, `title`, `url`) VALUES (:id, :title, :url)", {
+    await pool.execute("INSERT INTO `songs`(`id`, `title`, `url`, `date`) VALUES (:id, :title, :url, NOW())", {
       id: this.id,
       title: this.title,
       url: this.url
